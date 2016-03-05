@@ -4,7 +4,6 @@ $arguments = $_SERVER['argv'];
 $count = $_SERVER['argc'];
 $script = array_shift($arguments);
 
-
 if (empty($arguments)) {
 	error_log("\e[31m[Erreur]\e[0m - Vous devez définir le nom de la table pour exporter les datasets!", 4);
 	exit(1);
@@ -12,13 +11,11 @@ if (empty($arguments)) {
 
 $table =  current($arguments);
 
-$user = 'root';
-$passwd ='x55dsx-mysql';
-$base = 'reservoteich';
+require_once 'config.php';
 
-$dsn = sprintf('mysql:dbname=%s;host=localhost', $base);
+$dsn = sprintf('mysql:dbname=%s;host=localhost', DB_BASE);
 try {
-    $db = new PDO($dsn, $user, $passwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+    $db = new PDO($dsn, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $result = $db->query("SELECT * FROM `$table`");
     $datas = $result->fetchAll(PDO::FETCH_ASSOC);
