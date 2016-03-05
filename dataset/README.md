@@ -1,5 +1,4 @@
 # Dataset for PHPUnit
-Dataset is a simple unit test micro-framework for PHP.   
- Can be use on small application development,  
- Provide a smart HTML rendering,   
- Using Jquery and Bootstrap.
+Dataset is a tools for PHPUnit.   
+ Can be use on database testing using xml file,  
+ Provide xml files with data from mysql tables.
