@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/php -e ~/workspace/Zend/dataset/dataset.php $1
+/usr/bin/php -e ~/git/dataset/dataset/dataset.php $1
